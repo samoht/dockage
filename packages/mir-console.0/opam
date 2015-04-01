@@ -4,4 +4,3 @@ build: [
   ["mirage" "configure" "console/config.ml" "--unix"]
 ]
 depends: ["mirage" {>= "2.3.0"}]
-flags: verbose
