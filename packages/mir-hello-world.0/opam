@@ -1,7 +1,9 @@
 opam-version: "1.2"
 build: [
-  ["rm" "-f" "%{root}%/lock %{prefix}%/lock"]
+  ["rm" "-f" "%{root}%/lock" "%{prefix}%/lock"]
   ["mirage" "configure" "console/config.ml" "--unix"]
-  ["console/main.native"]
+  [make "-C" "console"]
+  ["sh" "-c" "./console/mir-console 2>&1"]
 ]
 depends: ["mirage" {>= "2.3.0"}]
+flags: verbose
