@@ -4,4 +4,4 @@ RUN opam update
 RUN git clone https://github.com/samoht/dockage.git
 RUN opam remote add dockage dockage
 RUN opam install mir-console -v
-CMD mir-console
+CMD opam config exec -- mir-console
