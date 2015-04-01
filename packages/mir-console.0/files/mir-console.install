@@ -1,1 +1,1 @@
-bin: {"console/mir-console"}
+bin: ["console/mir-console"]
