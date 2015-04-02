@@ -4,3 +4,4 @@ build: [
   ["mirage-build"     "static_website"]
 ]
 depends: ["mirage" {>= "2.3.0"}]
+patches: ["netconfig.diff"]

@@ -1,0 +1,22 @@
+diff --git a/static_website/config.ml b/static_website/config.ml
+index a21e03b..4db5e1c 100644
+--- a/static_website/config.ml
++++ b/static_website/config.ml
+@@ -31,10 +31,16 @@ let dhcp =
+     | _  -> true
+   with Not_found -> false
+ 
++let ip = {
++  address  =  Ipaddr.V4.of_string_exn "172.17.84.110";
++  netmask  =  Ipaddr.V4.of_string_exn "255.255.0.0";
++  gateways = [Ipaddr.V4.of_string_exn "172.17.42.1"];
++}
++
+ let stack console =
+   match net, dhcp with
+   | `Direct, true  -> direct_stackv4_with_dhcp console tap0
+-  | `Direct, false -> direct_stackv4_with_default_ipv4 console tap0
++  | `Direct, false -> direct_stackv4_with_static_ipv4 console tap0 ip
+   | `Socket, _     -> socket_stackv4 console [Ipaddr.V4.any]
+ 
+ let server =
