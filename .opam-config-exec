@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-opam config exec -- "$@"
+sudo opam config exec -- "$@"

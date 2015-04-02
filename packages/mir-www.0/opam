@@ -1,7 +1,6 @@
 opam-version: "1.2"
 build: [
-  ["rm" "-f" "%{root}%/lock" "%{prefix}%/lock"]
-  ["sh" "-c" "NET=direct mirage configure static_website/config.ml --unix"]
-  [make "-C" "static_website"]
+  ["mirage-configure" "static_website/config.ml"]
+  ["mirage-build"     "static_website"]
 ]
 depends: ["mirage" {>= "2.3.0"}]
